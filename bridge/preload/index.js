@@ -1,4 +1,4 @@
-const { version, contextBridge, ipcRenderer } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("__context_bridge__", {
   version: process.versions,

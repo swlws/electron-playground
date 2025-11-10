@@ -1,7 +1,7 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
-import { registerIpcMainHandler } from "./bridge/native/index.js";
+import { registerIpcMainHandler } from "./src/native/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +13,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "bridge/preload/index.js"),
+      preload: path.join(__dirname, "src/preload/index.js"),
     },
   });
   win.loadFile("public/index.html");
